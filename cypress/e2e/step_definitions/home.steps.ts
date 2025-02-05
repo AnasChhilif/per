@@ -16,9 +16,19 @@ Then('I should see a {string} button', (buttonText) => {
     .and('have.text', buttonText);
 });
 
-When('I click the {string} button', (buttonText) => {
+When('I click the "Get Started" button', () => {
+  // First ensure button is actionable
   cy.get('[data-testid="get-started-button"]')
-    .click({ force: true });
+    .should('be.visible')
+    // Scroll button into view
+    .scrollIntoView()
+    // Wait for any animations/transitions
+    .wait(500)
+    // Click in center of button
+    .click({ timeout: 10000, waitForAnimations: true })
+    .then(() => {
+      cy.log('Button clicked');
+    });
 });
 
 Then('I should be redirected to the todo page', () => {

@@ -1,14 +1,24 @@
 {
   "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
+    "strict": true,
     "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true
+    "allowJs": true,
+    "checkJs": true,
+    "types": ["node", "jest", "@cucumber/cucumber"],
+    "paths": {
+      "$lib": ["./src/lib"],
+      "$lib/*": ["./src/lib/*"]
+    }
   },
   "include": [
     ".svelte-kit/types/**/$types.d.ts",
