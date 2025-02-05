@@ -5,5 +5,7 @@ export default {
   format: ['progress-bar', 'html:cucumber-report.html'],
   formatOptions: {
     snippetInterface: 'async-await'
-  }
+  },
+  publishQuiet: true,
+  exit: true // Ensures the process exits after tests complete
 };
